@@ -1,0 +1,21 @@
+{
+  "id": "tuwien.community.room-radar",
+  "name": "TU Room & Study Radar",
+  "version": "1.0.0",
+  "description": "Find free lecture halls, quiet study spots, and navigate campus rooms across Freihaus, Karlsplatz, and Gußhaus.",
+  "author": {
+    "name": "TU Cockpit Community Contributors",
+    "github": "tu-cockpit-community",
+    "url": "https://github.com/tu-cockpit-community"
+  },
+  "category": "Campus Life",
+  "entrypoint": "index.html",
+  "homepage": "https://github.com/tu-cockpit-community/tu-room-radar",
+  "capabilities": {
+    "network": [
+      "https://maps.tuwien.ac.at/*",
+      "https://tiss.tuwien.ac.at/*"
+    ],
+    "storageQuotaMb": 10
+  }
+}

@@ -1,0 +1,40 @@
+name: Release Single-File Plugin Bundle
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Single-File Distribution
+        run: npm run build
+
+      - name: Package Release Archive
+        run: |
+          mkdir -p release_staging
+          cp dist/index.html release_staging/
+          cp manifest.json release_staging/
+          cd release_staging && zip -r ../plugin.zip index.html manifest.json
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: plugin.zip
+          generate_release_notes: true
