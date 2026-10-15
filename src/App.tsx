@@ -208,6 +208,27 @@ const ROOMS_DATA: CampusRoomItem[] = [
       { time: "08:30 - 21:00", event: "Offene Lernbereiche & Silent Study", isLecture: false },
     ],
   },
+  {
+    id: "treitl_info_hs",
+    code: "Info HS",
+    name: "Informatikhörsaal (Treitlstraße)",
+    building: "freihaus",
+    buildingName: "Informatikgebäude, Treitlstr. 3",
+    floor: "Erdgeschoß (EG)",
+    category: "lecture_hall",
+    seats: 320,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=Informatikh%C3%B6rsaal",
+    directions: "Treitlstraße 3, Haupteingang Erdgeschoß direkt gegenüber dem Portier.",
+    schedule: [
+      { time: "08:15 - 10:00", event: "VU Einführung in die Programmierung 1", isLecture: true },
+      { time: "10:00 - 13:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "13:00 - 15:00", event: "VU Algorithmen und Datenstrukturen", isLecture: true },
+      { time: "15:00 - 19:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
 
   // --- KARLSPLATZ (HAUPTGEBÄUDE) ---
   {
@@ -246,6 +267,26 @@ const ROOMS_DATA: CampusRoomItem[] = [
     directions: "Prunkstiege 1 in den ersten Stock, direkt neben dem Rektorat.",
     schedule: [
       { time: "08:00 - 19:00", event: "Offene Gruppenarbeitszone & Tische", isLecture: false },
+    ],
+  },
+  {
+    id: "hg_kuppelsaal",
+    code: "Kuppelsaal",
+    name: "Kuppelsaal (Karlsplatz Hauptgebäude)",
+    building: "hauptgebaeude",
+    buildingName: "Hauptgebäude, Karlsplatz 13",
+    floor: "Stiege 1, 4. Stock (Dachgeschoß)",
+    category: "lecture_hall",
+    seats: 220,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=Kuppelsaal",
+    directions: "Prunkstiege 1 bis in den 4. Stock unter die historische Kuppel.",
+    schedule: [
+      { time: "08:00 - 12:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "12:00 - 15:00", event: "Architektur Diplomprüfungen & Vorlesung", isLecture: true },
+      { time: "15:00 - 20:00", event: "Frei für Selbststudium", isLecture: false },
     ],
   },
   {
@@ -400,6 +441,26 @@ const ROOMS_DATA: CampusRoomItem[] = [
       { time: "08:00 - 11:00", event: "VO Grundlagen der Elektrotechnik", isLecture: true },
       { time: "11:00 - 15:30", event: "Frei für Selbststudium", isLecture: false },
       { time: "15:30 - 17:00", event: "UE Schaltungstechnik", isLecture: true },
+    ],
+  },
+  {
+    id: "ei_9",
+    code: "EI 9",
+    name: "Hörsaal EI 9 (Hochenegg)",
+    building: "gusshaus",
+    buildingName: "Campus Gußhaus, Gußhausstr. 25-29",
+    floor: "Altes EI-Gebäude, Erdgeschoß",
+    category: "lecture_hall",
+    seats: 180,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=EI+9",
+    directions: "Gußhausstraße 27, Erdgeschoß Trakt C.",
+    schedule: [
+      { time: "09:00 - 11:00", event: "VO Schaltungstechnik", isLecture: true },
+      { time: "11:00 - 15:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "15:00 - 17:00", event: "VU Datenbanksysteme", isLecture: true },
     ],
   },
   {
@@ -684,12 +745,14 @@ export const App: React.FC = () => {
           </div>
 
           {[
-            { id: "all", name: "Alle Standorte", count: ROOMS_DATA.length },
-            { id: "freihaus", name: "Freihaus (FH)", desc: "Wiedner Hauptstraße 8-10", count: 3 },
-            { id: "hauptgebaeude", name: "Hauptgebäude (HG)", desc: "Karlsplatz 13", count: 2 },
-            { id: "gusshaus", name: "Campus Gußhaus", desc: "Gußhausstraße 25-29", count: 2 },
-            { id: "getreidemarkt", name: "Getreidemarkt", desc: "Lehartrakt & Hochhaus", count: 2 },
-          ].map((loc) => (
+            { id: "all", name: "Alle Standorte", desc: "Campus-Gesamtübersicht" },
+            { id: "freihaus", name: "Freihaus & Treitlstr.", desc: "FH HS 1–8 & Info HS" },
+            { id: "hauptgebaeude", name: "Hauptgebäude (HG)", desc: "Karlsplatz 13 & Kuppelsaal" },
+            { id: "gusshaus", name: "Campus Gußhaus", desc: "EI 1–9 & Lernzone" },
+            { id: "getreidemarkt", name: "Getreidemarkt", desc: "Lehartrakt & Hochhaus (GM)" },
+          ].map((loc) => {
+            const roomCount = loc.id === "all" ? ROOMS_DATA.length : ROOMS_DATA.filter((r) => r.building === loc.id).length;
+            return (
             <button
               key={loc.id}
               onClick={() => setSelectedBuilding(loc.id)}
@@ -702,12 +765,12 @@ export const App: React.FC = () => {
               <div className="flex items-center justify-between text-xs font-semibold">
                 <span>{loc.name}</span>
                 <span className="text-[10px] opacity-70 bg-[var(--tu-bg-elevated)] px-1.5 py-0.2 rounded font-mono">
-                  {loc.count}
+                  {roomCount}
                 </span>
               </div>
               {loc.desc && <div className="text-[10px] text-[var(--tu-text-muted)] truncate mt-0.5">{loc.desc}</div>}
             </button>
-          ))}
+          );})}
         </aside>
 
         {/* Content Viewport */}
