@@ -1,9 +1,9 @@
-name: Release Single-File Plugin Bundle
+name: Release Plugin Bundle
 
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build-and-release:
@@ -11,30 +11,21 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Single-File Distribution
-        run: npm run build
-
-      - name: Package Release Archive
+      - run: npm ci
+      - run: npm run build
+      - name: Package Plugin Archive
         run: |
-          mkdir -p release_staging
-          cp dist/index.html release_staging/
-          cp manifest.json release_staging/
-          cd release_staging && zip -r ../plugin.zip index.html manifest.json
-
-      - name: Publish GitHub Release
+          mkdir -p bundle
+          cp dist/index.html bundle/index.html
+          cp manifest.json bundle/manifest.json
+          cd bundle && zip -r ../plugin.zip *
+      - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           files: plugin.zip
-          generate_release_notes: true
+          draft: false
+          prerelease: false
