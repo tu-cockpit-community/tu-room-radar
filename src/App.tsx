@@ -35,6 +35,7 @@ interface CampusRoomItem {
 }
 
 const ROOMS_DATA: CampusRoomItem[] = [
+  // --- FREIHAUS ---
   {
     id: "fh_hs1",
     code: "HS 1",
@@ -47,7 +48,6 @@ const ROOMS_DATA: CampusRoomItem[] = [
     hasOutlets: true,
     hasWifi: true,
     status: "free",
-    freeUntil: "14:15 Uhr",
     mapsUrl: "https://maps.tuwien.ac.at/?q=HS+1",
     directions: "Haupteingang Wiedner Hauptstraße, links am Portier vorbei in den gelben Bereich.",
     schedule: [
@@ -69,8 +69,6 @@ const ROOMS_DATA: CampusRoomItem[] = [
     hasOutlets: true,
     hasWifi: true,
     status: "busy",
-    busyWith: "VU Algorithmen und Datenstrukturen",
-    busyUntil: "13:45 Uhr",
     mapsUrl: "https://maps.tuwien.ac.at/?q=HS+2",
     directions: "Stiege 2 im gelben Turm, 1. Stock direkt gegenüber dem Lift.",
     schedule: [
@@ -80,23 +78,138 @@ const ROOMS_DATA: CampusRoomItem[] = [
     ],
   },
   {
-    id: "fh_lern_bib",
-    code: "Lernraum Bib",
-    name: "Bibliothek Lernsaal & Silent Zone",
+    id: "fh_hs3",
+    code: "HS 3",
+    name: "Hörsaal 3 (Freihaus)",
     building: "freihaus",
     buildingName: "Freihaus, Wiedner Hauptstr. 8-10",
-    floor: "Universitätsbibliothek, 1.–4. OG",
+    floor: "Turm Gelb, 2. Stock (2. OG)",
+    category: "lecture_hall",
+    seats: 140,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+3",
+    directions: "Stiege 2 im gelben Turm, 2. Stock.",
+    schedule: [
+      { time: "08:15 - 10:00", event: "VO Theoretische Informatik", isLecture: true },
+      { time: "10:00 - 15:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "fh_hs4",
+    code: "HS 4",
+    name: "Hörsaal 4 (Freihaus)",
+    building: "freihaus",
+    buildingName: "Freihaus, Wiedner Hauptstr. 8-10",
+    floor: "Turm Grün, Erdgeschoß (EG)",
+    category: "lecture_hall",
+    seats: 220,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+4",
+    directions: "Eingang Freihaus Innenhof, grüner Turm Erdgeschoß.",
+    schedule: [
+      { time: "10:00 - 12:00", event: "VO Technische Physik 1", isLecture: true },
+      { time: "12:00 - 17:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "fh_hs5",
+    code: "HS 5",
+    name: "Hörsaal 5 (Freihaus)",
+    building: "freihaus",
+    buildingName: "Freihaus, Wiedner Hauptstr. 8-10",
+    floor: "Turm Grün, 1. Stock (1. OG)",
+    category: "lecture_hall",
+    seats: 180,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+5",
+    directions: "Stiege 5 im grünen Turm, 1. Stock.",
+    schedule: [
+      { time: "09:00 - 13:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "13:00 - 15:00", event: "VU Datenbanksysteme", isLecture: true },
+    ],
+  },
+  {
+    id: "fh_hs6",
+    code: "HS 6",
+    name: "Hörsaal 6 (Freihaus)",
+    building: "freihaus",
+    buildingName: "Freihaus, Wiedner Hauptstr. 8-10",
+    floor: "Turm Grün, 2. Stock (2. OG)",
+    category: "lecture_hall",
+    seats: 120,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+6",
+    directions: "Stiege 5 im grünen Turm, 2. Stock.",
+    schedule: [
+      { time: "08:00 - 18:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "fh_hs7",
+    code: "HS 7",
+    name: "Hörsaal 7 (Freihaus)",
+    building: "freihaus",
+    buildingName: "Freihaus, Wiedner Hauptstr. 8-10",
+    floor: "Turm Rot, 1. Stock (1. OG)",
+    category: "lecture_hall",
+    seats: 150,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+7",
+    directions: "Stiege 7 im roten Turm, 1. Stock.",
+    schedule: [
+      { time: "08:30 - 11:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "11:00 - 13:00", event: "VO Wahrscheinlichkeitstheorie", isLecture: true },
+      { time: "13:00 - 18:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "fh_hs8",
+    code: "HS 8",
+    name: "Hörsaal 8 (Freihaus)",
+    building: "freihaus",
+    buildingName: "Freihaus, Wiedner Hauptstr. 8-10",
+    floor: "Turm Rot, 2. Stock (2. OG)",
+    category: "lecture_hall",
+    seats: 140,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+8",
+    directions: "Stiege 7 im roten Turm, 2. Stock.",
+    schedule: [
+      { time: "09:00 - 17:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "fh_lern_bib",
+    code: "TU Bibliothek",
+    name: "TU Wien Hauptbibliothek (Resselgasse)",
+    building: "freihaus",
+    buildingName: "Universitätsbibliothek, Resselgasse 4",
+    floor: "Ebenen 1–5 (Silent Cubicles & Gruppenräume)",
     category: "silent_study",
-    seats: 420,
+    seats: 480,
     hasOutlets: true,
     hasWifi: true,
     status: "open_study",
     mapsUrl: "https://maps.tuwien.ac.at/?q=Bibliothek",
-    directions: "Universitätsbibliothek TU Wien am Platz vor dem Freihaus (Eule am Gebäude).",
+    directions: "Hauptbibliothek vor dem Freihaus (Große Eule am Eingang).",
     schedule: [
-      { time: "08:30 - 21:00", event: "Durchgehend geöffnet für Studierende", isLecture: false },
+      { time: "08:30 - 21:00", event: "Offene Lernbereiche & Silent Study", isLecture: false },
     ],
   },
+
+  // --- KARLSPLATZ (HAUPTGEBÄUDE) ---
   {
     id: "hg_audimax",
     code: "Audimax",
@@ -109,8 +222,6 @@ const ROOMS_DATA: CampusRoomItem[] = [
     hasOutlets: true,
     hasWifi: true,
     status: "busy",
-    busyWith: "VO Analysis 1 für Informatik",
-    busyUntil: "14:00 Uhr",
     mapsUrl: "https://maps.tuwien.ac.at/?q=Audimax",
     directions: "Karlsplatz Haupteingang, nach der Säulenhalle links die Rampe hinab.",
     schedule: [
@@ -138,9 +249,143 @@ const ROOMS_DATA: CampusRoomItem[] = [
     ],
   },
   {
+    id: "hg_hs11",
+    code: "HS 11",
+    name: "Hörsaal 11 (Karlsplatz)",
+    building: "hauptgebaeude",
+    buildingName: "Hauptgebäude, Karlsplatz 13",
+    floor: "Stiege 3, 2. Stock",
+    category: "lecture_hall",
+    seats: 120,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+11",
+    directions: "Stiege 3 im Haupttrakt, 2. Stock.",
+    schedule: [
+      { time: "09:00 - 12:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "12:00 - 14:00", event: "VO Baugeschichte", isLecture: true },
+      { time: "14:00 - 19:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "hg_hs14",
+    code: "HS 14",
+    name: "Hörsaal 14 (Günther Feuerstein)",
+    building: "hauptgebaeude",
+    buildingName: "Hauptgebäude, Karlsplatz 13",
+    floor: "Stiege 6, 3. Stock",
+    category: "lecture_hall",
+    seats: 150,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+14",
+    directions: "Stiege 6 im Hoftrakt, 3. Stock.",
+    schedule: [
+      { time: "08:30 - 14:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "14:00 - 16:00", event: "VO Tragwerkslehre", isLecture: true },
+    ],
+  },
+  {
+    id: "hg_hs17",
+    code: "HS 17",
+    name: "Hörsaal 17 (Karlsplatz)",
+    building: "hauptgebaeude",
+    buildingName: "Hauptgebäude, Karlsplatz 13",
+    floor: "Stiege 7, 2. Stock",
+    category: "lecture_hall",
+    seats: 95,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+17",
+    directions: "Stiege 7 im Hoftrakt, 2. Stock.",
+    schedule: [
+      { time: "08:00 - 18:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "hg_hs18",
+    code: "HS 18",
+    name: "Hörsaal 18 (Karlsplatz)",
+    building: "hauptgebaeude",
+    buildingName: "Hauptgebäude, Karlsplatz 13",
+    floor: "Stiege 7, 3. Stock",
+    category: "lecture_hall",
+    seats: 90,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=HS+18",
+    directions: "Stiege 7 im Hoftrakt, 3. Stock.",
+    schedule: [
+      { time: "09:00 - 11:00", event: "VO Stadtplanung", isLecture: true },
+      { time: "11:00 - 18:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+
+  // --- GUßHAUS ---
+  {
+    id: "ei_1",
+    code: "EI 1",
+    name: "Hörsaal EI 1 (Altes EI)",
+    building: "gusshaus",
+    buildingName: "Campus Gußhaus, Gußhausstr. 25-29",
+    floor: "Altes EI-Gebäude, Erdgeschoß",
+    category: "lecture_hall",
+    seats: 120,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=EI+1",
+    directions: "Gußhausstraße 25, Erdgeschoß rechts.",
+    schedule: [
+      { time: "08:00 - 14:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "ei_2",
+    code: "EI 2",
+    name: "Hörsaal EI 2 (Altes EI)",
+    building: "gusshaus",
+    buildingName: "Campus Gußhaus, Gußhausstr. 25-29",
+    floor: "Altes EI-Gebäude, 1. Stock",
+    category: "lecture_hall",
+    seats: 110,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=EI+2",
+    directions: "Gußhausstraße 25, 1. Stock.",
+    schedule: [
+      { time: "10:00 - 12:00", event: "VO Signaltheorie", isLecture: true },
+      { time: "12:00 - 18:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "ei_3",
+    code: "EI 3",
+    name: "Hörsaal EI 3 (Sahulka)",
+    building: "gusshaus",
+    buildingName: "Campus Gußhaus, Gußhausstr. 25-29",
+    floor: "Altes EI-Gebäude, 1. Stock",
+    category: "lecture_hall",
+    seats: 150,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=EI+3",
+    directions: "Gußhausstraße 25, 1. Stock Trakt B.",
+    schedule: [
+      { time: "08:30 - 13:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "13:00 - 15:00", event: "VO Mikroelektronik", isLecture: true },
+    ],
+  },
+  {
     id: "ei_7",
     code: "EI 7",
-    name: "Elektrotechnik Hörsaal 7",
+    name: "Elektrotechnik Hörsaal EI 7",
     building: "gusshaus",
     buildingName: "Campus Gußhaus, Gußhausstr. 25-29",
     floor: "Altes EI-Gebäude, Erdgeschoß",
@@ -149,7 +394,6 @@ const ROOMS_DATA: CampusRoomItem[] = [
     hasOutlets: true,
     hasWifi: true,
     status: "free",
-    freeUntil: "15:30 Uhr",
     mapsUrl: "https://maps.tuwien.ac.at/?q=EI+7",
     directions: "Gußhausstraße 27, durch den Innenhof rechts zum Hörsaaltrakt.",
     schedule: [
@@ -176,6 +420,8 @@ const ROOMS_DATA: CampusRoomItem[] = [
       { time: "08:00 - 20:00", event: "Gruppenarbeit & Laptoparbeitsplätze", isLecture: false },
     ],
   },
+
+  // --- GETREIDEMARKT ---
   {
     id: "gm_1",
     code: "GM 1",
@@ -188,12 +434,67 @@ const ROOMS_DATA: CampusRoomItem[] = [
     hasOutlets: true,
     hasWifi: true,
     status: "free",
-    freeUntil: "16:00 Uhr",
     mapsUrl: "https://maps.tuwien.ac.at/?q=GM+1",
     directions: "Getreidemarkt Eingang Lehartrakt, geradeaus durch die Glastür.",
     schedule: [
       { time: "08:30 - 10:30", event: "VO Mechanik 1", isLecture: true },
       { time: "10:30 - 16:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "gm_2",
+    code: "GM 2",
+    name: "Hörsaal GM 2 (Ernst Melan)",
+    building: "getreidemarkt",
+    buildingName: "Campus Getreidemarkt, Getreidemarkt 9",
+    floor: "Lehartrakt, 2. Stock",
+    category: "lecture_hall",
+    seats: 180,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=GM+2",
+    directions: "Lehartrakt Stiege 2 in den 2. Stock.",
+    schedule: [
+      { time: "09:00 - 14:00", event: "Frei für Selbststudium", isLecture: false },
+      { time: "14:00 - 16:00", event: "VO Strömungslehre", isLecture: true },
+    ],
+  },
+  {
+    id: "gm_3",
+    code: "GM 3",
+    name: "Hörsaal GM 3 (Vortragssaal)",
+    building: "getreidemarkt",
+    buildingName: "Campus Getreidemarkt, Getreidemarkt 9",
+    floor: "Maschinenbautrakt, Erdgeschoß",
+    category: "lecture_hall",
+    seats: 140,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=GM+3",
+    directions: "Maschinenbau Foyer Erdgeschoß.",
+    schedule: [
+      { time: "08:00 - 18:00", event: "Frei für Selbststudium", isLecture: false },
+    ],
+  },
+  {
+    id: "gm_4",
+    code: "GM 4",
+    name: "Hörsaal GM 4 (Reutlinger)",
+    building: "getreidemarkt",
+    buildingName: "Campus Getreidemarkt, Getreidemarkt 9",
+    floor: "Chemietrakt, 1. Stock",
+    category: "lecture_hall",
+    seats: 120,
+    hasOutlets: true,
+    hasWifi: true,
+    status: "free",
+    mapsUrl: "https://maps.tuwien.ac.at/?q=GM+4",
+    directions: "Chemietrakt Stiege 1, 1. Stock.",
+    schedule: [
+      { time: "11:00 - 13:00", event: "VO Allgemeine Chemie", isLecture: true },
+      { time: "13:00 - 17:00", event: "Frei für Selbststudium", isLecture: false },
     ],
   },
   {
@@ -216,6 +517,79 @@ const ROOMS_DATA: CampusRoomItem[] = [
   },
 ];
 
+function parseMinutes(timeStr: string): number {
+  const [h, m] = timeStr.trim().split(":").map(Number);
+  return h * 60 + m;
+}
+
+function calculateCurrentRoomStatus(room: CampusRoomItem): {
+  status: "free" | "busy" | "open_study";
+  freeUntil?: string;
+  busyWith?: string;
+  busyUntil?: string;
+} {
+  const now = new Date();
+  const day = now.getDay();
+  const curMins = now.getHours() * 60 + now.getMinutes();
+
+  if (room.category === "silent_study" || room.category === "group_study" || room.category === "pc_pool") {
+    if (day === 0) {
+      return { status: "busy", busyWith: "Am Sonntag geschlossen", busyUntil: "Mo 08:30 Uhr" };
+    }
+    if (day === 6) {
+      if (curMins >= 10 * 60 && curMins < 17 * 60) {
+        return { status: "open_study", freeUntil: "17:00 Uhr" };
+      }
+      return { status: "busy", busyWith: "Samstag ab 17:00 geschlossen", busyUntil: "Mo 08:30 Uhr" };
+    }
+    if (curMins >= 8 * 60 + 30 && curMins < 21 * 60) {
+      return { status: "open_study", freeUntil: "21:00 Uhr" };
+    }
+    return { status: "busy", busyWith: "Außerhalb der Öffnungszeiten", busyUntil: "08:30 Uhr" };
+  }
+
+  // Lecture hall
+  if (day === 0 || day === 6) {
+    return { status: "busy", busyWith: "Wochenende (Hörsaal geschlossen)", busyUntil: "Montag 08:00 Uhr" };
+  }
+
+  // Check schedule slots
+  for (let i = 0; i < room.schedule.length; i++) {
+    const slot = room.schedule[i];
+    const [startStr, endStr] = slot.time.split("-").map((s) => s.trim());
+    const startM = parseMinutes(startStr);
+    const endM = parseMinutes(endStr);
+
+    if (curMins >= startM && curMins < endM) {
+      if (slot.isLecture) {
+        return {
+          status: "busy",
+          busyWith: slot.event,
+          busyUntil: `${endStr} Uhr`,
+        };
+      } else {
+        return {
+          status: "free",
+          freeUntil: `${endStr} Uhr`,
+        };
+      }
+    }
+  }
+
+  if (curMins >= 20 * 60 || curMins < 8 * 60) {
+    return {
+      status: "busy",
+      busyWith: "Nachtruhe (Gebäude geschlossen)",
+      busyUntil: "08:00 Uhr",
+    };
+  }
+
+  return {
+    status: "free",
+    freeUntil: "20:00 Uhr",
+  };
+}
+
 export const App: React.FC = () => {
   const [search, setSearch] = useState("");
   const [selectedBuilding, setSelectedBuilding] = useState<string>("all");
@@ -223,8 +597,21 @@ export const App: React.FC = () => {
   const [onlyFree, setOnlyFree] = useState(false);
   const [activeModalRoom, setActiveModalRoom] = useState<CampusRoomItem | null>(null);
 
+  const liveRooms = useMemo(() => {
+    return ROOMS_DATA.map((r) => {
+      const dynamicStatus = calculateCurrentRoomStatus(r);
+      return {
+        ...r,
+        status: dynamicStatus.status,
+        freeUntil: dynamicStatus.freeUntil,
+        busyWith: dynamicStatus.busyWith,
+        busyUntil: dynamicStatus.busyUntil,
+      };
+    });
+  }, []);
+
   const filteredRooms = useMemo(() => {
-    return ROOMS_DATA.filter((r) => {
+    return liveRooms.filter((r) => {
       if (selectedBuilding !== "all" && r.building !== selectedBuilding) return false;
       if (selectedCategory !== "all" && r.category !== selectedCategory) return false;
       if (onlyFree && r.status === "busy") return false;
@@ -240,7 +627,7 @@ export const App: React.FC = () => {
 
       return true;
     });
-  }, [search, selectedBuilding, selectedCategory, onlyFree]);
+  }, [liveRooms, search, selectedBuilding, selectedCategory, onlyFree]);
 
   return (
     <div className="flex flex-col h-screen w-screen bg-[var(--tu-bg-canvas)] text-[var(--tu-text-primary)] font-sans overflow-hidden">
